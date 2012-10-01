@@ -8,6 +8,7 @@ $ ->
       </div>
     '))
 
+    $("#confirmation_dialog").addClass(element.data("confirm-class"))
     $("#confirmation_dialog .modal-body").html(message)
     $("#confirmation_dialog .modal-header h3").html(element.data("confirm-title") || window.top.location.origin)
     $("#confirmation_dialog .modal-footer .cancel").html(element.data("confirm-cancel") || "Cancel")
