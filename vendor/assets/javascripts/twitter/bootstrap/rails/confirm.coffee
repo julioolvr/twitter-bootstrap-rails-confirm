@@ -4,7 +4,7 @@ $ ->
       <div class="modal hide" id="confirmation_dialog">
         <div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h3>...</h3></div>
         <div class="modal-body"></div>
-        <div class="modal-footer"><a href="#" class="checkbox" data-dismiss="modal"><a href="#" class="btn cancel" data-dismiss="modal">...</a><a href="#" class="btn proceed btn-primary">...</a></div>
+        <div class="modal-footer"><a href="#" class="btn cancel" data-dismiss="modal">...</a><a href="#" class="btn proceed btn-primary">...</a></div>
       </div>
     '))
 
@@ -17,8 +17,12 @@ $ ->
     $("#confirmation_dialog .modal-header h3").html(message || window.top.location.origin)
     $("#confirmation_dialog .modal-footer .cancel").html(element.data("confirm-cancel") || "Cancel")
     $("#confirmation_dialog .modal-footer .proceed").html(element.data("confirm-proceed") || "Ok").attr("class", "btn proceed btn-primary").addClass(element.data("confirm-proceed-class"))
-    $("#confirmation_dialog .modal-footer .checkbox").html(element.data("confirm-checkbox") || "CHECKBOX")
     
+    checkbox = element.data("confirm-checkbox")
+    if checkbox
+      label = $('<label/>').text(element.data("confirm-checkbox"))
+      label.append($('<input type="checkbox" class="checkbox"/>'))
+      $("#confirmation_dialog .modal-footer").prepend(label)    
 
     $("#confirmation_dialog").modal "show"
 
