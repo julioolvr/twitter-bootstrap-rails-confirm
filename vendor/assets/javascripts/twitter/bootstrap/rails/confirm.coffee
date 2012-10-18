@@ -13,7 +13,7 @@ $ ->
     if body
       $("#confirmation_dialog .modal-body").html(body)
     else
-    $("#confirmation_dialog .modal-body").remove()
+      $("#confirmation_dialog .modal-body").remove()
     $("#confirmation_dialog .modal-header h3").html(message || window.top.location.origin)
     $("#confirmation_dialog .modal-footer .cancel").html(element.data("confirm-cancel") || "Cancel")
     $("#confirmation_dialog .modal-footer .proceed").html(element.data("confirm-proceed") || "Ok").attr("class", "btn proceed btn-primary").addClass(element.data("confirm-proceed-class"))
