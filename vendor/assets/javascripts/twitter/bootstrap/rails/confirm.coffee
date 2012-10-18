@@ -18,11 +18,15 @@ $ ->
     $("#confirmation_dialog .modal-footer .cancel").html(element.data("confirm-cancel") || "Cancel")
     $("#confirmation_dialog .modal-footer .proceed").html(element.data("confirm-proceed") || "Ok").attr("class", "btn proceed btn-primary").addClass(element.data("confirm-proceed-class"))
     
-    checkbox = element.data("confirm-checkbox")
-    if checkbox
-      label = $('<label/>').text(element.data("confirm-checkbox"))
-      label.prepend($('<input type="checkbox" class="checkbox"/>'))
-      $("#confirmation_dialog .modal-footer").prepend(label)    
+    checkbox_exists = $("#confirmation_dialog .modal-footer .checkbox").length
+    if !checkbox_exists
+      checkbox = element.data("confirm-checkbox")
+      if checkbox
+        label = $('<label/>').text(element.data("confirm-checkbox"))
+        label.prepend($('<input type="checkbox" class="checkbox"/>'))
+        $("#confirmation_dialog .modal-footer").prepend(label)    
+    else
+      $("#confirmation_dialog .modal-footer .checkbox").prop('checked', false)
 
     $("#confirmation_dialog").modal "show"
 
