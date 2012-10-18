@@ -18,16 +18,22 @@ $ ->
     $("#confirmation_dialog .modal-footer .cancel").html(element.data("confirm-cancel") || "Cancel")
     $("#confirmation_dialog .modal-footer .proceed").html(element.data("confirm-proceed") || "Ok").attr("class", "btn proceed btn-primary").addClass(element.data("confirm-proceed-class"))
     
-    checkbox_exists = $("#confirmation_dialog .modal-footer .checkbox").length
-    if !checkbox_exists
-      checkbox = element.data("confirm-checkbox")
-      if checkbox
+    checkbox = element.data("confirm-checkbox")
+    if checkbox
+      checkbox_exists = $("#confirmation_dialog .modal-footer .checkbox").length  
+      if !checkbox_exists
         label = $('<label/>').text(element.data("confirm-checkbox"))
         label.prepend($('<input type="checkbox" class="checkbox"/>'))
         $("#confirmation_dialog .modal-footer").prepend(label)    
-    else
       $("#confirmation_dialog .modal-footer .checkbox").prop('checked', false)
+      $("#confirmation_dialog .modal-footer .proceed").addClass("disabled")
 
+    $("#confirmation_dialog .modal-footer .checkbox").click ->
+      if $("#confirmation_dialog .modal-footer .checkbox").is(':checked')
+        $("#confirmation_dialog .modal-footer .proceed").removeClass("disabled")
+      else
+        $("#confirmation_dialog .modal-footer .proceed").addClass("disabled")
+    
     $("#confirmation_dialog").modal "show"
 
     $("#confirmation_dialog .proceed").click ->
