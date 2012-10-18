@@ -27,14 +27,16 @@ $ ->
     $("#confirmation_dialog").modal "show"
 
     $("#confirmation_dialog .proceed").click ->
-      $("#confirmation_dialog").modal("hide").remove()
-      callback()
       if checkbox
         if checkbox.is(':checked')
+          $("#confirmation_dialog").modal("hide").remove()
+          callback()
           true
         else
+          $("#confirmation_dialog").modal("hide").remove()
           false
       else
+        $("#confirmation_dialog").modal("hide").remove()
         false
 
     $("#confirmation_dialog .cancel").click ->
