@@ -4,7 +4,7 @@ $ ->
       <div class="modal hide" id="confirmation_dialog">
         <div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h3>...</h3></div>
         <div class="modal-body"></div>
-        <div class="modal-footer"><input type="checkbox" class="checkbox" data-dismiss="modal"><a href="#" class="btn cancel" data-dismiss="modal">...</a><a href="#" class="btn proceed btn-primary">...</a></div>
+        <div class="modal-footer"><a href="#" class="checkbox" data-dismiss="modal"><a href="#" class="btn cancel" data-dismiss="modal">...</a><a href="#" class="btn proceed btn-primary">...</a></div>
       </div>
     '))
 
