@@ -18,9 +18,9 @@ $ ->
     $("#confirmation_dialog .modal-footer .cancel").html(element.data("confirm-cancel") || "Cancel")
     $("#confirmation_dialog .modal-footer .proceed").html(element.data("confirm-proceed") || "Ok").attr("class", "btn proceed btn-primary").addClass(element.data("confirm-proceed-class"))
     
-    if (element.data("confirm-checkbox")) {
-      $("#confirmation_dialog .modal-footer").append("CHECKBOX");
-    }
+    if (element.data("confirm-checkbox"))
+      $("#confirmation_dialog .modal-footer .checkbox").html("CHECKBOX")
+    
 
     $("#confirmation_dialog").modal "show"
 
