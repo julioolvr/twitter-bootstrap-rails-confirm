@@ -21,7 +21,7 @@ $ ->
     checkbox = element.data("confirm-checkbox")
     if checkbox
       label = $('<label/>').text(element.data("confirm-checkbox"))
-      label.append($('<input type="checkbox" class="checkbox"/>'))
+      label.prepend($('<input type="checkbox" class="checkbox"/>'))
       $("#confirmation_dialog .modal-footer").prepend(label)    
 
     $("#confirmation_dialog").modal "show"
@@ -29,7 +29,13 @@ $ ->
     $("#confirmation_dialog .proceed").click ->
       $("#confirmation_dialog").modal("hide").remove()
       callback()
-      true
+      if checkbox
+        if checkbox.is(':checked')
+          true
+        else
+          false
+      else
+        false
 
     $("#confirmation_dialog .cancel").click ->
       $("#confirmation_dialog").modal("hide").remove()
