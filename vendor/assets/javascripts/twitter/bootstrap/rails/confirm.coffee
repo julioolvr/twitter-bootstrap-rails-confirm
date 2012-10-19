@@ -38,7 +38,7 @@ $ ->
 
     $("#confirmation_dialog .proceed").click ->
       box = $("#confirmation_dialog .modal-footer .checkbox")
-      if !box.is(':checked')
+      if checkbox && !box.is(':checked')
         return false
       $("#confirmation_dialog").modal("hide").remove()
       callback()
