@@ -2,7 +2,7 @@ $ ->
   TwitterBootstrapConfirmBox = (message, element, callback) ->
     $(document.body).append($('
       <div class="modal hide" id="confirmation_dialog">
-        <div class="modal-header"><button type="button" class="close" data-dismiss="modal">×</button><h2>...</h2></div>
+        <div class="modal-header"><a class="close" data-dismiss="modal"></a><h2>...</h2></div>
         <div class="modal-body"></div>
         <div class="modal-footer"><a href="#" class="btn cancel" data-dismiss="modal">...</a><a href="#" class="btn proceed btn-primary">...</a></div>
       </div>
